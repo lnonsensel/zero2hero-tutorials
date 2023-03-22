@@ -71,6 +71,9 @@ const provider = new ethers.providers.Web3Provider(window.ethereum, 97);
 
 let signer;
 let contract;
+var userWonl;
+var contractWonl;
+
 
 provider.send("eth_requestAccounts", []).then(() => {
     provider.listAccounts().then((accounts) => {
@@ -80,12 +83,20 @@ provider.send("eth_requestAccounts", []).then(() => {
     });
 });
 
-async function setNote(){
-    const note = document.getElementById("note").value;
-    await contract.setNote(note);
-}
-
-async function getNote(){
-    const note = await  contract.getNote();
-    document.getElementById("result").innerText = note;
+async function playGame(){
+    const usersChoice = document.getElementById("usersChoice").value;
+	contract.on("GamePlayed",
+	 (player, contractValue, userValue, userWon, contractWon) => {
+		if (userWon == contractWon){
+			document.getElementById("gameResult").innerText = 'Draw. Your funds will be sent back to you';
+		}
+		else if (userWon < contractWon){
+			document.getElementById("gameResult").innerText = 'You lost';
+		}
+		else{
+			document.getElementById("gameResult").innerText = 'You won and doubled your stake';
+		}
+	});
+    result = await contract.playGame(usersChoice, { value: ethers.utils.parseEther("0.0001")}).then(document.getElementById("gameResult").innerText = 'Transaction pending...');
+	
 }
