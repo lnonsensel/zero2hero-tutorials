@@ -1,27 +1,56 @@
-const contractAddress = "0x6848aeCa0006aEd53ec302b40ce48BA410727E30"
+const contractAddress = "0x4e1433fb16f9be999d9f2c24e1fc5cacee9c5897"
 const abi = [
+	{
+		"inputs": [],
+		"stateMutability": "payable",
+		"type": "constructor"
+	},
 	{
 		"anonymous": false,
 		"inputs": [
 			{
 				"indexed": false,
 				"internalType": "address",
-				"name": "noteSender",
+				"name": "player",
 				"type": "address"
 			},
 			{
 				"indexed": false,
-				"internalType": "string",
-				"name": "addedNote",
-				"type": "string"
+				"internalType": "uint256",
+				"name": "contractValue",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint8",
+				"name": "userValue",
+				"type": "uint8"
+			},
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "userWon",
+				"type": "bool"
+			},
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "contractWon",
+				"type": "bool"
 			}
 		],
-		"name": "NoteAdded",
+		"name": "GamePlayed",
 		"type": "event"
 	},
 	{
-		"inputs": [],
-		"name": "getNote",
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "_option",
+				"type": "uint8"
+			}
+		],
+		"name": "playGame",
 		"outputs": [
 			{
 				"internalType": "string",
@@ -29,49 +58,14 @@ const abi = [
 				"type": "string"
 			}
 		],
-		"stateMutability": "view",
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "getNoteWithArray",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_note",
-				"type": "string"
-			}
-		],
-		"name": "setNote",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_note",
-				"type": "string"
-			}
-		],
-		"name": "setNoteWithArray",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		"stateMutability": "payable",
+		"type": "receive"
 	}
-];
+]
 
 const provider = new ethers.providers.Web3Provider(window.ethereum, 97);
 
