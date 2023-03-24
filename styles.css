@@ -1,0 +1,77 @@
+body {
+    background: #9370DB;
+  }
+.heading{
+    font-family:fantasy;
+    font-size: 75px;
+    text-align: center;
+}
+.button {
+    border: none;
+    border-radius: 75px;
+    text-decoration: none;
+    color: white;
+    background: #FFA07A;
+    box-shadow: 0 5px 0 #FF6347;
+    padding: 25px;
+}
+
+.button:focus{
+    background: #FFC0CB;
+    box-shadow: none;
+    position: relative;
+    top: 5px;
+}
+.btns{
+    text-align: center;
+}
+.pb{
+    border-radius: 5px;
+    color: white;
+    transition: .2s linear;
+    background: #BA55D3;
+    border-color: #4B0082;
+    border-radius: 50px;
+    font-size: 50px;
+    
+}
+.pb:hover{
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #3C82F8;
+}
+.footer{
+    position: fixed; 
+    bottom: 75px;
+    text-align: center;
+    color: #fff; 
+    width: 100%;
+}
+.footer div {
+    padding: 10px; 
+    background: #39b54a;
+}
+.game{
+    text-align: center;
+    font-size: 25px;
+    font-family: Impact, fantasy;
+}
+input[type="number"] {
+    border: 1px solid black;
+    border-radius: 20px;
+    text-align: center;
+    size: 25px;
+    font-size: 20px;
+ }
+p{
+    text-align: center;
+    font-size: 30px;
+    font-family: fantasy;
+}
+.bet{
+    text-align: center;
+}
+.gamehistory{
+    text-align: center;
+    font-family: fantasy;
+    font-size: 50px;
+}
+

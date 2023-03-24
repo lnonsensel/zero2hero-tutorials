@@ -1,28 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css"/>
-
-    <script
-    src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
-    type="application/javascript"
-    ></script>
-
+    <title>ROCK-PAPER-SCISSORS</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
     <script src="script.js"></script>
 </head>
+
 <body>
-    <h1>Rock-Scissors-Paper</h1>
-    <p>The most popular offline game now on blockchain</p>
-    <p>You can pick 0-Rock, 1-Scissors, 2-Paper</p>
-    <br />
-    
-    <input type="text" id="usersChoice" />
-    <button onclick="playGame()">Play</button>
-    <p>Game Result: <span id="gameResult"></span></p>
-    <button onclick="getHistory()">History</button>
+    <div class="heading">
+        <p>Play "Rock-Paper-Scissors"!</p>
+    </div>
+    <div class="game">
+        <p>The most popular offline game now on blockchain!</p>
+    </div>
+    <div class="btns">
+        <button class="button" type="submit" onclick="getButtonRock()">Rock</button>
+        <button class="button" type="submit" onclick="getButtonPaper()">Paper</button>
+        <button class="button" type="submit" onclick="getButtonScissors()">Scissors</button>
+    </div>
+    <br>
+    <div class="bet">
+        <p>Make a bet!</p>
+        <input type="number" min="0.0001" required value="0.001" step="0.001" id="stake">
+    </div>
+    <br>
+    <div class="gamehistory">
+        <a href="./gamehisotry.html" onclick="getHistory()">Game history</a>
+    </div>
+    <br>
+    <p id="game-status"></p>
+    <div class="footer">
+        <button class="pb" type="submit" onclick="playGame()">Play!</button>
+    </div>
+
 </body>
+
 </html>
