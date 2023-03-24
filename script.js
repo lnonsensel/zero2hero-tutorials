@@ -1,4 +1,10 @@
-const contractAddress = "0x4e1433fb16f9be999d9f2c24e1fc5cacee9c5897"
+//0xe2Ab25Cb5F1D40168B951e57582c786Df210F005  -With history
+//0x4e1433fb16f9be999d9f2c24e1fc5cacee9c5897 -Without history
+
+//const { ethers } = require("ethers");
+
+
+const contractAddress = "0xe2Ab25Cb5F1D40168B951e57582c786Df210F005"
 const abi = [
 	{
 		"inputs": [],
@@ -43,6 +49,19 @@ const abi = [
 		"type": "event"
 	},
 	{
+		"inputs": [],
+		"name": "getMyHistory",
+		"outputs": [
+			{
+				"internalType": "string[]",
+				"name": "",
+				"type": "string[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "uint8",
@@ -51,13 +70,7 @@ const abi = [
 			}
 		],
 		"name": "playGame",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
+		"outputs": [],
 		"stateMutability": "payable",
 		"type": "function"
 	},
@@ -98,5 +111,11 @@ async function playGame(){
 		}
 	});
     result = await contract.playGame(usersChoice, { value: ethers.utils.parseEther("0.0001")}).then(document.getElementById("gameResult").innerText = 'Transaction pending...');
+
+async function getHistory(){
+	await contract.getMyHistory().then((result) => console.log(ethers.utils.defaultAbiCoder.decode("string[]", result)))
 	
+}
+
+
 }
